@@ -1,12 +1,19 @@
 package model;
 
-public class Funcionario {
+public class Funcionario extends Usuario {
 
     private int id;
     private String nome;
     private String cargo;
 
-    public Funcionario(int id, String nome, String cargo) {
+    public Funcionario(int id,
+                       String nome,
+                       String cargo,
+                       String login,
+                       String senha) {
+
+        super(login, senha);
+
         this.id = id;
         this.nome = nome;
         this.cargo = cargo;
@@ -38,6 +45,7 @@ public class Funcionario {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cargo='" + cargo + '\'' +
+                ", login='" + login + '\'' +
                 '}';
     }
 }

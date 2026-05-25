@@ -2,14 +2,13 @@ package model;
 
 public class Usuario {
 
-    private String login;
-    private String senha;
-    private String nivelAcesso;
+    protected String login;
+    protected String senha;
 
-    public Usuario(String login, String senha, String nivelAcesso) {
+    public Usuario(String login, String senha) {
+
         this.login = login;
         this.senha = senha;
-        this.nivelAcesso = nivelAcesso;
     }
 
     public String getLogin() {
@@ -18,9 +17,5 @@ public class Usuario {
 
     public String getSenha() {
         return senha;
-    }
-
-    public String getNivelAcesso() {
-        return nivelAcesso;
     }
 }

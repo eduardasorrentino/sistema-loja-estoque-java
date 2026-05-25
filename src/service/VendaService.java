@@ -71,4 +71,49 @@ public class VendaService {
             System.out.println(nome + " -> " + ranking.get(nome) + " unidades");
         }
     }
+
+    public void emitirCupomFiscal() {
+
+        System.out.println("\n===== CUPOM FISCAL =====");
+
+        if (vendas.isEmpty()) {
+            System.out.println("Nenhuma venda realizada.");
+            return;
+        }
+
+        double total = 0;
+
+        for (Venda venda : vendas) {
+
+            System.out.println(
+                    "Produto: " + venda.getProduto().getNome()
+                            + " | Quantidade: " + venda.getQuantidade()
+                            + " | Valor: R$ " + venda.getValorTotal()
+            );
+
+            total += venda.getValorTotal();
+        }
+
+        System.out.println("----------------------------");
+        System.out.println("TOTAL DA COMPRA: R$ " + total);
+    }
+
+    public void lucroMensal() {
+
+        System.out.println("\n===== LUCRO MENSAL =====");
+
+        if (vendas.isEmpty()) {
+            System.out.println("Nenhuma venda realizada.");
+            return;
+        }
+
+        double lucro = 0;
+
+        for (Venda venda : vendas) {
+
+            lucro += venda.getValorTotal();
+        }
+
+        System.out.println("Lucro total do mês: R$ " + lucro);
+    }
 }

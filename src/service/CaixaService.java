@@ -1,24 +1,31 @@
 package service;
 
-import model.Caixa;
-
 public class CaixaService {
 
-    private Caixa caixa;
+    private double saldo = 0;
 
-    public CaixaService() {
-        caixa = new Caixa(0);
+    public void adicionarValor(double valor) {
+
+        saldo += valor;
+
+        System.out.println("Valor adicionado ao caixa!");
     }
 
-    public void adicionarVenda(double valor) {
+    public void retirarValor(double valor) {
 
-        caixa.adicionarValor(valor);
+        if (valor > saldo) {
+            System.out.println("Saldo insuficiente.");
+            return;
+        }
 
-        System.out.println("Valor adicionado ao caixa.");
+        saldo -= valor;
+
+        System.out.println("Valor retirado do caixa!");
     }
 
     public void mostrarSaldo() {
 
-        System.out.println("Saldo atual do caixa: R$ " + caixa.getSaldo());
+        System.out.println("\n===== CAIXA =====");
+        System.out.println("Saldo atual: R$ " + saldo);
     }
 }
