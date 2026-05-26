@@ -1,18 +1,21 @@
 package model;
 
+import enums.CargoFuncionario;
+import enums.NivelAcesso;
+
 public class Funcionario extends Usuario {
 
     private int id;
     private String nome;
-    private String cargo;
+    private CargoFuncionario cargo;
 
     public Funcionario(int id,
                        String nome,
-                       String cargo,
+                       CargoFuncionario cargo,
                        String login,
                        String senha) {
 
-        super(login, senha);
+        super(login, senha, NivelAcesso.FUNCIONARIO);
 
         this.id = id;
         this.nome = nome;
@@ -27,7 +30,7 @@ public class Funcionario extends Usuario {
         return nome;
     }
 
-    public String getCargo() {
+    public CargoFuncionario getCargo() {
         return cargo;
     }
 
@@ -35,7 +38,7 @@ public class Funcionario extends Usuario {
         this.nome = nome;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(CargoFuncionario cargo) {
         this.cargo = cargo;
     }
 
@@ -44,7 +47,7 @@ public class Funcionario extends Usuario {
         return "Funcionario{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", cargo='" + cargo + '\'' +
+                ", cargo=" + cargo +
                 ", login='" + login + '\'' +
                 '}';
     }

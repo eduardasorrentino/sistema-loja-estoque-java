@@ -1,5 +1,6 @@
 package service;
 
+import enums.FormaPagamento;
 import model.Produto;
 import model.Venda;
 
@@ -10,7 +11,9 @@ public class VendaService {
 
     private ArrayList<Venda> vendas = new ArrayList<>();
 
-    public void realizarVenda(Produto produto, int quantidade) {
+    public void realizarVenda(Produto produto,
+                              int quantidade,
+                              FormaPagamento formaPagamento) {
 
         if (produto.getQuantidadeEstoque() < quantidade) {
             System.out.println("Estoque insuficiente.");
@@ -21,7 +24,13 @@ public class VendaService {
                 produto.getQuantidadeEstoque() - quantidade
         );
 
-        Venda venda = new Venda(produto, quantidade);
+        Venda venda =
+                new Venda(
+                        produto,
+                        quantidade,
+                        formaPagamento
+                );
+
         vendas.add(venda);
 
         System.out.println("Venda realizada com sucesso!");
@@ -89,6 +98,7 @@ public class VendaService {
                     "Produto: " + venda.getProduto().getNome()
                             + " | Quantidade: " + venda.getQuantidade()
                             + " | Valor: R$ " + venda.getValorTotal()
+                            + " | Pagamento: " + venda.getFormaPagamento()
             );
 
             total += venda.getValorTotal();

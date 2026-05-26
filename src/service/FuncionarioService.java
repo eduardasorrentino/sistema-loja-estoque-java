@@ -1,5 +1,6 @@
 package service;
 
+import enums.CargoFuncionario;
 import model.Funcionario;
 
 import java.util.ArrayList;
@@ -39,7 +40,9 @@ public class FuncionarioService {
         return null;
     }
 
-    public void editarFuncionario(int id, String novoNome, String novoCargo) {
+    public void editarFuncionario(int id,
+                                  String novoNome,
+                                  CargoFuncionario novoCargo) {
 
         Funcionario funcionario = buscarFuncionario(id);
 
